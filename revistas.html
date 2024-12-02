@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revistas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="revistas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- Reemplaza la imagen actual en tu navbar con este código -->
+            <div class="book-icon">
+                <div class="book">
+                    <!-- Portada -->
+                    <div class="cover">
+                        <div class="spine"></div>
+                    </div>
+                    <!-- Páginas -->
+                    <div class="page page-4"></div>
+                    <div class="page page-3"></div>
+                    <div class="page page-2"></div>
+                    <div class="page page-1"></div>
+                    <!-- Contraportada -->
+                    <div class="back-cover"></div>
+                </div>
+            </div>
+            <a class="navbar-brand" href="#">LecturaPlus</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="libro.html">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="manga.html">Manga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="#">Revistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="trailes.html">Trailes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="Tienda.html">Tienda</a>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-end"> <!-- Añadido justify-content-end -->
+                    <!-- Botón de login -->
+                    <a href="Registro.html" class="btn btn-outline-light me-2" id="loginButton">Login</a>
+                    
+                    <!-- Perfil de usuario -->
+                    <div class="dropdown position-relative" id="userProfile" style="display: none;"> <!-- Añadido position-relative -->
+                        <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i>
+                            <span id="userName"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end" aria-labelledby="userDropdown"> <!-- Añadido dropdown-menu-lg-end -->
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Mi Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutButton"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center py-4">
+            <h1 class="h2">REVISTAS QUE TE PUEDEN GUSTAR</h1>
+            
+        </header>
+
+        <div class="filter-section mb-4">
+            <div class="btn-group" role="group" aria-label="Filtros de revistas">
+                <button type="button" class="btn-outline-light" data-filter="all">Todas</button>
+                <button type="button" class="btn-outline-light" data-filter="manga">Manga</button>
+                <button type="button" class="btn-outline-light" data-filter="anime">Anime</button>
+                <button type="button" class="btn-outline-light" data-filter="cultura">Cultura</button>
+            </div>
+        </div>
+
+        <!-- Reemplaza el contenido actual de container-items con esto -->
+        <div class="container-items row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Weekly Shōnen Jump -->
+            <div class="col">
+                <div class="card" data-category="manga">
+                    <div class="first-content">
+                        <span><img src="imagenes/Weekly Shōnen Jump.jpeg" alt="Weekly Shōnen Jump" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Weekly Shōnen Jump"</p>
+                        <p class="card__description">La revista de manga más popular de Japón. Publica series como 
+                        One Piece, My Hero Academia y Jujutsu Kaisen. Cada número incluye los últimos capítulos 
+                        de las series más populares y noticias de la industria del manga.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NewType -->
+            <div class="col">
+                <div class="card" data-category="anime">
+                    <div class="first-content">
+                        <span><img src="imagenes/NewType.jpeg" alt="NewType" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"NewType"</p>
+                        <p class="card__description">Revista mensual especializada en anime y cultura japonesa. 
+                        Incluye noticias de la industria, entrevistas con creadores, reseñas de series y 
+                        reportajes especiales sobre los últimos estrenos de anime.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Otomedia -->
+            <div class="col">
+                <div class="card" data-category="anime">
+            <div class="first-content">
+                        <span><img src="imagenes/Otomedia.jpeg" alt="Otomedia" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Otomedia"</p>
+                        <p class="card__description">Revista centrada en el entretenimiento y la cultura anime. 
+                        Ofrece entrevistas con seiyuus (actores de voz), información sobre merchandising y 
+                        cobertura de eventos relacionados con el anime.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animedia -->
+            <div class="col">
+                <div class="card" data-category="anime">
+                    <div class="first-content">
+                        <span><img src="imagenes/Animedia.jpeg" alt="Animedia" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Animedia"</p>
+                        <p class="card__description">Una de las revistas más antiguas sobre anime. 
+                        Presenta calendarios de estrenos, entrevistas exclusivas con directores y 
+                        productores, y análisis detallados de las series más populares.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dengeki G's Magazine -->
+            <div class="col">
+                <div class="card" data-category="cultura">
+                    <div class="first-content">
+                        <span><img src="imagenes/Dengeki G's Magazine.jpg" alt="Dengeki G's Magazine" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Dengeki G's Magazine"</p>
+                        <p class="card__description">Revista especializada en videojuegos y anime. 
+                        Cubre las últimas noticias de la industria del gaming japonés, novelas ligeras 
+                        y anime relacionado con videojuegos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cosmode -->
+            <div class="col">
+                <div class="card" data-category="cultura">
+                    <div class="first-content">
+                        <span><img src="imagenes/Cosmode.jpeg" alt="Cosmode" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Cosmode"</p>
+                        <p class="card__description">Revista dedicada al mundo del cosplay. 
+                        Incluye tutoriales, entrevistas con cosplayers famosos, guías de 
+                        maquillaje y consejos para crear disfraces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Young Jump -->
+            <div class="col">
+                <div class="card" data-category="manga">
+                    <div class="first-content">
+                        <span><img src="imagenes/Young Jump.jpg" alt="Young Jump" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Young Jump"</p>
+                        <p class="card__description">Revista semanal de manga seinen. Conocida por 
+                        publicar series como Tokyo Ghoul y Kingdom. Enfocada en historias más 
+                        maduras y complejas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASH! -->
+            <div class="col">
+                <div class="card" data-category="cultura">
+                    <div class="first-content">
+                        <span><img src="imagenes/PASH!.jpeg" alt="PASH!" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"PASH!"</p>
+                        <p class="card__description">Revista mensual que cubre todo el espectro 
+                        del entretenimiento japonés, desde anime y manga hasta música y eventos 
+                        culturales.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Anime Ace -->
+            <div class="col">
+                <div class="card" data-category="anime">
+                    <div class="first-content">
+                        <span><img src="imagenes/Anime Aces.jpg" alt="Anime Ace" class="img"></span>
+                    </div>
+                    <div class="second-content">
+                        <p class="card__title">"Anime Ace"</p>
+                        <p class="card__description">Revista trimestral especializada en análisis profundos de anime. 
+                        Ofrece artículos detallados sobre la producción de anime, entrevistas exclusivas con estudios 
+                        de animación y tendencias en la industria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nosotros</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#historiaModal">Nuestra Historia</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#misionModal">Misión y Visión</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#equipoModal">Equipo</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Enlaces Útiles</h3>
+                <ul class="footer-links">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="libro.html">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="manga.html">Manga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="#">Revistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="trailes.html">Trailes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="Tienda.html">Tienda</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#chatbox">Soporte</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#faqModal">FAQ</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactoModal">Contacto</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://facebook.com/lecturaplus" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/lecturaplus" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/lecturaplus" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 LecturaPlus. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Modal del Chat -->
+<div class="modal fade" id="chatbox" tabindex="-1" aria-labelledby="chatboxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header chatbox__header">
+                <h4 class="modal-title" id="chatboxLabel">Soporte LecturaPlus</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="chatbox__messages" id="messageArea">
+                    <div class="messages__history">
+                        <!-- Los mensajes se agregarán aquí dinámicamente -->
+                    </div>
+                    <div class="messages__item messages__item--typing">
+                        <span class="messages__dot"></span>
+                        <span class="messages__dot"></span>
+                        <span class="messages__dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer chatbox__footer">
+                <input type="text" placeholder="Escribe un mensaje..." id="chatInput" class="form-control">
+                <button class="btn btn-primary chatbox__send" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Contacto -->
+<div class="modal fade" id="contactoModal" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactoModalLabel">Información de Contacto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>WhatsApp</h6>
+                    <p><a href="https://wa.me/59169448014?text=¡Bienvenido%20a%20lectura%20plus!%20¿En%20qué%20podemos%20ayudarte?" target="_blank">
+                            <i class="fab fa-whatsapp"></i> +591 69448014 </a>
+                    </p>
+                <h6>Redes Sociales</h6>
+                <ul class="list-unstyled">
+                    <li><a href="https://facebook.com/lecturaplus" target="_blank"><i class="fab fa-facebook"></i> @lecturaplus</a></li>
+                    <li><a href="https://twitter.com/lecturaplus" target="_blank"><i class="fab fa-twitter"></i> @lecturaplus</a></li>
+                    <li><a href="https://instagram.com/lecturaplus" target="_blank"><i class="fab fa-instagram"></i> @lecturaplus</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de FAQ -->
+<div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="faqModalLabel">Preguntas Frecuentes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                ¿Cómo puedo crear una cuenta?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Para crear una cuenta, haz clic en el botón "Login" y selecciona la opción de registro.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                ¿Cómo puedo acceder al contenido premium?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                El contenido premium está disponible para usuarios registrados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Nuestra Historia -->
+<div class="modal fade" id="historiaModal" tabindex="-1" aria-labelledby="historiaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="historiaModalLabel">Nuestra Historia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Lectura Plus nació en 2020 con la visión de transformar la manera en que las personas acceden a la literatura. Comenzamos como un pequeño proyecto y hemos crecido hasta convertirnos en una plataforma líder en recomendaciones literarias.</p>
+                <p>A lo largo de los años, hemos construido una comunidad apasionada por la lectura, conectando a lectores de todo el mundo con historias que inspiran, educan y entretienen.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Misión y Visión -->
+<div class="modal fade" id="misionModal" tabindex="-1" aria-labelledby="misionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="misionModalLabel">Misión y Visión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Misión</h6>
+                <p>Facilitar el acceso a la literatura de calidad y fomentar el amor por la lectura a través de una plataforma innovadora y accesible para todos.</p>
+                
+                <h6>Visión</h6>
+                <p>Ser la plataforma líder mundial en recomendaciones literarias, creando una comunidad global de lectores apasionados y conectados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Equipo -->
+<div class="modal fade" id="equipoModal" tabindex="-1" aria-labelledby="equipoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="equipoModalLabel">Nuestro Equipo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="team-member">
+                    <h6>Fundador y CEO</h6>
+                    <p>Juan Pérez</p>
+                    <p class="member-desc">Apasionado por la literatura y la tecnología.</p>
+                </div>
+                <div class="team-member">
+                    <h6>Directora de Contenido</h6>
+                    <p>María García</p>
+                    <p class="member-desc">Especialista en literatura contemporánea.</p>
+                </div>
+                <div class="team-member">
+                    <h6>Jefe de Desarrollo</h6>
+                    <p>Carlos Rodríguez</p>
+                    <p class="member-desc">Experto en desarrollo web y experiencia de usuario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Inicio.js"></script>
+    <script src="chat.js"></script>
+    <script src="revistas.js"></script>
+    <script>
+        if (!protectPage()) {
+            alert('Necesitas iniciar sesión para ver esta página');
+        }
+    </script>
+</body>
+
+</html>

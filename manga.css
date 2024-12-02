@@ -1,0 +1,1162 @@
+/* ====== IMPORTS ====== */
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Jacques+Francois+Shadow&family=Leckerli+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Jacquarda+Bastarda+9&family=Jacques+Francois+Shadow&family=Leckerli+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Jacquarda+Bastarda+9&family=Jacques+Francois+Shadow&family=Leckerli+One&family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Jacquarda+Bastarda+9&family=Jacques+Francois+Shadow&family=Leckerli+One&family=Rubik+Glitch&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Honk&family=Kalnia+Glaze:wght@600&display=swap');
+
+/* ====== NAVBAR ====== */
+/* Estilo para el navbar */
+.navbar {
+    background-color:rgba(45, 41, 112, 0.95)!important; /* Un tono que combina con tu gradiente */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para el brand */
+.navbar-brand {
+    color: white !important;
+    font-weight: 600;
+}
+
+/* Estilos para los links del navbar */
+.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+/* Estilo para el toggler */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo para el dropdown */
+.dropdown-menu {
+    background: rgba(73, 68, 154, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dropdown-item:hover {
+    background: rgba(237, 95, 255, 0.2);
+    color: white;
+}
+
+.dropdown-divider {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(73, 68, 154, 0.95);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Estilo para el botón de login */
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.397);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Estilos para el icono del libro */
+.book-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.book {
+    position: relative;
+    width: 48px;
+    height: 60px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+}
+
+/* Portada del libro */
+.cover {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%); /* Nuevo gradiente */
+    border-radius: 2px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    transform-origin: left;
+    transition: transform 0.3s;
+}
+
+/* Lomo del libro */
+.spine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(115,108,244,1); /* Color del lomo ajustado */
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+/* Páginas */
+.page {
+    position: absolute;
+    background-color: #ffffff; /* Color de las páginas ajustado */
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    transform-origin: left;
+    transition: transform 0.3s;
+    z-index: -1;
+    
+}
+
+.page-1 {
+    inset: 2.5px;
+}
+
+.page-2 {
+    inset: 2px;
+}
+
+.page-3 {
+    inset: 1.5px;
+}
+
+.page-4 {
+    inset: 1px;
+}
+
+/* Contraportada */
+.back-cover {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(115,108,244,1); /* Color de la contraportada ajustado */
+    border-radius: 2px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    z-index: -1;
+}
+
+/* Animaciones al hover */
+.book:hover .cover {
+    transform: rotateY(-60deg);
+}
+
+.book:hover .page-4 {
+    transform: rotateY(-45deg);
+}
+
+.book:hover .page-3 {
+    transform: rotateY(-30deg);
+}
+
+.book:hover .page-2 {
+    transform: rotateY(-15deg);
+}
+
+/* Efecto de presión */
+.book:active {
+    transform: translate(2px, 2px);
+    transition: transform 0.3s;
+}
+
+/* ====== ESTILOS GENERALES ====== */
+body {
+    font-family: "Hanalei Fill", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #333;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%) !important;
+}
+
+.container {
+    padding-bottom: 0px;
+}
+.i{
+    width: 50px;
+    height: 50px;
+}
+
+
+/* ====== TÍTULOS ====== */
+.h2 {
+    font-size: 3rem;
+    font-family: "Rubik Glitch", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: antiquewhite;
+}
+
+
+/* ====== CONTENEDOR DE ITEMS ====== */
+.container-items {
+    background: rgba(255, 255, 255, 0.329);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    margin-top: 40px;
+}
+
+.search-container {
+    margin-bottom: 2rem;
+}
+
+.search-results {
+    display: none;
+    background: rgba(36, 10, 131, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.results-title {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.result-item {
+    background:#8f37d6;;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.result-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.manga-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.manga-description {
+    display: block;
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.no-results {
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.highlight {
+    animation: highlight 2s ease-out;
+}
+
+@keyframes highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ====== CARDS ====== */
+.card {
+    width: 310px;
+    height: 510px;
+    padding: 5px;
+    transition: all 0.4s;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+    font-weight: 900;
+    margin: 2rem auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 0; 
+    background: var(--card-primary);
+    color: var(--text-color);
+}
+
+.card:hover {
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+    z-index: 1;
+    background: var(--card-secondary);
+}
+
+.card figure {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: all .5s;
+}
+
+.card:hover img {
+    transform: scale(1.2);
+}
+
+.first-content {
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card:hover .first-content {
+    height: 0px;
+    opacity: 0;
+}
+
+.second-content {
+    height: 0%;
+    width: 100%;
+    opacity: 0;
+    display: flex;
+    display: table-column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: all 0.4s;
+    font-size: 0px;
+    transform: rotate(90deg) scale(-1);
+    background: var(--second-content-primary);
+    color: var(--second-content-secondary);
+}
+.card__description {
+    margin: 0px 10px 0px 16px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: "Sour Gummy", sans-serif;
+    /* Aplicar el mismo gradiente púrpura-rosa */
+    background: linear-gradient(180deg, #707070 0%, #2c2c2c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Asegurar que el gradiente se muestre correctamente */
+    display: inline-block;
+}
+/* ceselte y morado background: linear-gradient(180deg, #71c5f5 0%, #822fe2 100%);*/
+/* naranjo y rosa background: linear-gradient(180deg, #f5d103 0%, #ee61ee 100%);*/
+/* Opción 4: Celeste eléctrico a azul marino 
+background: linear-gradient(180deg, #00FFFF 0%, #1E90FF 100%);1*/
+/* Opción 8: Azul hielo a lila 
+background: linear-gradient(180deg, #F0F8FF 0%, #E6E6FA 100%);1*/
+
+.card__title {
+    margin: 10px 10px 10px 10px;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: "Honk", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+/* var(--second-content-primary)*/
+.card:hover .second-content {
+    opacity: 1;
+    height: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    transform: rotate(0deg);
+    background: whitesmoke;
+    color: var(--second-content-secondary);
+    border-radius: 15px;
+    
+    /* Mejora del renderizado de texto */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Mantener la calidad durante la transformación */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
+    /* Mejor manejo del overflow con border-radius */
+    position: relative;
+    overflow: auto;
+    
+    /* Clip más suave */
+    clip-path: inset(0 round 15px);
+    
+    /* Eliminar el mask-image que puede causar problemas de renderizado */
+    /* mask-image y -webkit-mask-image eliminados */
+}
+
+/* Estilizar el scrollbar para mejor apariencia */
+.card:hover .second-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card:hover .second-content::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 10px;
+}
+
+.card:hover .second-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #178dd1 0%, #822fe2 100%);
+    border-radius: 4px;
+}
+
+.img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+/* ====== ITEMS ====== */
+.item {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.item figure {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: all .5s;
+}
+
+.item:hover img {
+    transform: scale(1.2);
+}
+
+/* ====== INFO PRODUCTO ====== */
+.info-product {
+    padding: 15px 30px;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* ====== BOTÓN PAGAR ====== */
+#btn-pagar {
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    border: none;
+    margin: 10px 20px 20px;
+    width: calc(100% - 40px);
+    transition: all 0.3s ease;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn-pagar:hover {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    transform: translateY(-2px);
+}
+
+/* ====== UTILIDADES ====== */
+.hidden {
+    display: none !important;
+}
+
+.hidden-cart {
+    display: none;
+}
+
+/* ====== ALERTA PERSONALIZADA ====== */
+.custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.alert-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#alert-close, #alert-cancel {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #571574;
+}
+
+#alert-close:hover, #alert-cancel:hover {
+    transform: scale(1.05);
+}
+
+.alert-content {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 90%;
+}
+
+.alert-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#alert-close {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    color: #571574;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#alert-close:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.05);
+}
+
+/* ====== MEDIA QUERIES ====== */
+@media (max-width: 768px) {
+    .container-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .item img {
+        height: auto;
+    }
+    
+    .titulo-producto-carrito {
+        font-size: 16px;
+    }
+    
+    .precio-producto-carrito {
+        font-size: 16px;
+    }
+
+    .container-cart-products {
+        width: 300px;
+    }
+
+    .h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-items {
+        grid-template-columns: 1fr;
+    }
+    
+    .container-cart-products {
+        width: 300px;
+    }
+    
+    .cart-product {
+        padding: 15px;
+    }
+
+    .item img {
+        height: auto;
+    }
+    
+    .info-cart-product {
+        gap: 10px;
+    }
+
+    .h2 {
+        font-size: 2rem;
+    }
+}
+
+/* ====== FOOTER MEJORADO ====== */
+.site-footer {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+    padding: 4rem 0 2rem;
+    margin-top: auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-family: "Rubik Glitch", system-ui;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: antiquewhite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.footer-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Ajustes responsive para el footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section {
+        padding: 0 1rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .social-links {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Estilos del menú dropdown */
+.dropdown-menu {
+    min-width: 200px;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    border: none;
+    padding: 8px;
+}
+
+.dropdown-item {
+    color: white !important; /* Texto blanco para los items */
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+.dropdown-item i {
+    width: 20px;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente al hover */
+    color: white;
+}
+
+/* Línea divisoria en el dropdown */
+.dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.2); /* Línea divisoria semi-transparente */
+    margin: 4px 0;
+}
+
+/* Estilos del botón del perfil */
+#userProfile .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+    border: none;
+}
+
+/* Estilos para el hover del botón */
+#userProfile .btn:hover {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Estilos para cuando el botón está activo/presionado */
+#userProfile .btn:active {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Estilos para cuando el dropdown está abierto */
+#userProfile .btn.show {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Ajuste para la flecha del dropdown */
+.dropdown-toggle::after {
+    border-top-color: white;
+}
+
+@media (max-width: 991.98px) { /* Para pantallas menores a lg */
+    .navbar .dropdown-menu {
+        position: absolute !important;
+        right: 0 !important;
+        left: auto !important;
+        min-width: 200px; /* Ancho mínimo del menú desplegable */
+    }
+
+    .navbar .dropdown {
+        position: static !important;
+    }
+
+    .navbar .dropdown-menu-end {
+        transform: none !important;
+    }
+}
+
+/* Asegura que el botón de perfil no se desborde */
+.navbar .btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Ajusta según necesites */
+}
+
+/* Asegura que el nombre de usuario no se desborde */
+#userName {
+    max-width: 100px; /* Ajusta según necesites */
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+/* Estilos del menú dropdown */
+.dropdown-menu {
+    min-width: 200px;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    border: none;
+    padding: 8px;
+}
+
+.dropdown-item {
+    color: white !important; /* Texto blanco para los items */
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+.dropdown-item i {
+    width: 20px;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente al hover */
+    color: white;
+}
+
+/* Línea divisoria en el dropdown */
+.dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.2); /* Línea divisoria semi-transparente */
+    margin: 4px 0;
+}
+
+/* Estilos del botón del perfil */
+#userProfile .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+    border: none;
+}
+
+/* Estilos para el hover del botón */
+#userProfile .btn:hover {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Estilos para cuando el botón está activo/presionado */
+#userProfile .btn:active {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Estilos para cuando el dropdown está abierto */
+#userProfile .btn.show {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Ajuste para la flecha del dropdown */
+.dropdown-toggle::after {
+    border-top-color: white;
+}
+
+/* Grupo 1: Modales en end inferior */
+#chatbox .modal-dialog,
+#contactoModal .modal-dialog,
+#faqModal .modal-dialog {
+    margin: 0;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 350px;
+    transform: none !important;
+}
+
+/* Grupo 2: Modales en start inferior */
+.modal-dialog:not(#chatbox .modal-dialog):not(#contactoModal .modal-dialog):not(#faqModal .modal-dialog) {
+    margin: 0;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    width: 350px;
+    transform: none !important;
+}
+
+/* Estilos compartidos para todos los modales */
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    border: none;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.modal-header {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+    border: none;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* Estilos específicos del Chat Modal */
+#chatbox .modal-content {
+    height: 450px;
+}
+
+#chatbox .modal-body {
+    height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+#chatbox .messages__item {
+    margin: 8px 0;
+    padding: 8px 12px;
+    max-width: 70%;
+    border-radius: 15px;
+}
+
+#chatbox .messages__item--visitor {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+    margin-left: auto;
+}
+
+#chatbox .messages__item--operator {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(105, 1, 225, 0.2);
+    margin-right: auto;
+}
+
+#chatbox .modal-footer {
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid rgba(105, 1, 225, 0.1);
+}
+
+#chatbox .chatbox__send {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    border: none;
+    padding: 8px 15px;
+}
+
+/* Estilos específicos del FAQ Modal */
+#faqModal .modal-content {
+    height: 450px;
+}
+
+#faqModal .accordion-item {
+    background: transparent;
+    border: 1px solid rgba(105, 1, 225, 0.2);
+    margin-bottom: 8px;
+}
+
+#faqModal .accordion-button {
+    background: rgba(255, 255, 255, 0.8);
+    color: #6901e1;
+}
+
+#faqModal .accordion-button:not(.collapsed) {
+    background: linear-gradient(180deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    color: white;
+}
+
+/* Estilos específicos del Modal de Contacto */
+#contactoModal .modal-body {
+    padding: 20px;
+}
+
+#contactoModal h6 {
+    color: #6901e1;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#contactoModal a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#contactoModal a:hover {
+    background: linear-gradient(180deg, rgba(115,108,244,0.1) 0%, rgba(237,95,255,0.1) 100%);
+    transform: translateX(5px);
+}
+
+#contactoModal i {
+    margin-right: 10px;
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
+}
+
+#contactoModal .fa-whatsapp { color: #25D366; }
+#contactoModal .fa-facebook { color: #1877F2; }
+#contactoModal .fa-twitter { color: #1DA1F2; }
+#contactoModal .fa-instagram { color: #E1306C; }
+
+/* Animación de los puntos de escritura */
+@keyframes typing {
+    0% { transform: translateY(0) }
+    50% { transform: translateY(-5px) }
+    100% { transform: translateY(0) }
+}
+
+#chatbox .messages__dot {
+    width: 8px;
+    height: 8px;
+    background: #6901e1;
+    border-radius: 50%;
+    margin: 0 3px;
+    display: inline-block;
+    animation: typing 1s infinite;
+}
+
+#chatbox .messages__dot:nth-child(1) { animation-delay: 0s; }
+#chatbox .messages__dot:nth-child(2) { animation-delay: 0.2s; }
+#chatbox .messages__dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Ajustes responsive */
+@media (max-width: 576px) {
+    #chatbox .modal-dialog,
+    #contactoModal .modal-dialog,
+    #faqModal .modal-dialog {
+        right: 15px;
+        bottom: 15px;
+        width: calc(100% - 30px);
+        max-width: 350px;
+    }
+
+    .modal-dialog:not(#chatbox .modal-dialog):not(#contactoModal .modal-dialog):not(#faqModal .modal-dialog) {
+        left: 15px;
+        bottom: 15px;
+        width: calc(100% - 30px);
+        max-width: 350px;
+    }
+}
+/* Estilos para el equipo */
+.team-member {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: rgba(115,108,244,0.1);
+}
+
+.team-member h6 {
+    margin-top: 0;
+    color: #6901e1;
+}
+
+.team-member p {
+    margin-bottom: 5px;
+}
+
+.member-desc {
+    font-size: 0.9em;
+    color: #666;
+}

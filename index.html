@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Lectura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar de Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- Reemplaza la imagen actual en tu navbar con este código -->
+            <div class="book-icon">
+                <div class="book">
+                    <!-- Portada -->
+                    <div class="cover">
+                        <div class="spine"></div>
+                    </div>
+                    <!-- Páginas -->
+                    <div class="page page-4"></div>
+                    <div class="page page-3"></div>
+                    <div class="page page-2"></div>
+                    <div class="page page-1"></div>
+                    <!-- Contraportada -->
+                    <div class="back-cover"></div>
+                </div>
+            </div>
+            <a class="navbar-brand" href="#">LecturaPlus</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="libro.html">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="manga.html">Manga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="revistas.html">Revistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="trailes.html">Trailes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="Tienda.html">Tienda</a>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-end"> <!-- Añadido justify-content-end -->
+                    <!-- Botón de login -->
+                    <a href="Registro.html" class="btn btn-outline-light me-2" id="loginButton">Login</a>
+                    
+                    <!-- Perfil de usuario -->
+                    <div class="dropdown position-relative" id="userProfile" style="display: none;"> <!-- Añadido position-relative -->
+                        <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i>
+                            <span id="userName"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end" aria-labelledby="userDropdown"> <!-- Añadido dropdown-menu-lg-end -->
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Mi Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutButton"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories Section -->
+<div class="categories-section py-5 ">
+    <div class="container">
+        <h2 class="h2 text-center mb-5">Explora nuestras categorías</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="category-card position-relative overflow-hidden">
+                    <img src="imagenes/i17.jpeg" alt="Libros" class="w-100">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Libros</h3>
+                        <p>Descubre historias que te inspirarán</p>
+                        <a href="libro.html" class="btn btn-light enlace-protegido">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card position-relative overflow-hidden">
+                    <img src="imagenes/manga.jpeg" alt="Manga" class="w-100">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Manga</h3>
+                        <p>Sumérgete en el mundo del manga</p>
+                        <a href="manga.html" class="btn btn-light enlace-protegido">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card position-relative overflow-hidden">
+                    <img src="imagenes/Death Note Poster.jpeg" alt="Adaptaciones" class="w-100">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Adaptaciones</h3>
+                        <p>Del papel a la pantalla</p>
+                        <a href="trailes.html" class="btn btn-light enlace-protegido">Explorar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Section -->
+<div class="container py-5">
+    <h2 class="h2 text-center mb-4">Recomendados de la semana</h2>
+    <div class="featured-carousel">
+        <!-- Tu carrusel actual pero con mejoras visuales -->
+        <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="5"></button>
+            </div>
+            <!-- Carrusel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagenes/rec7.jpeg"alt="Recomendados" class="w-100 h-100">
+                    <div class="carousel-caption">
+                        <h5>Recomendados</h5>
+                        <p>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/Death Note.jpeg" alt="Recomendados" class="w-100 h-100">
+                    <div class="carousel-caption">
+                        <h5>Recomendados</h5>
+                        <p>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/rec3.jpeg" alt="Recomendados" class="w-100 h-100">
+                    <div class="carousel-caption">
+                        <h5>Recomendados</h5>
+                        <p>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/rec4.jpeg" alt="Recomendados" class="w-100 h-100">
+                    <div class="carousel-caption">
+                        <h5>Recomendados</h5>
+                        <p>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/rec5.jpeg" alt="Recomendados" class="w-100 h-100">
+                    <div class="carousel-caption">
+                        <h5>Recomendados</h5>
+                        <p>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/rec6.jpeg" alt="Recomendados" class="w-100 h-100">
+                    <div class="carousel-caption">
+                        <h5>Recomendados</h5>
+                        <p>.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nosotros</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#historiaModal">Nuestra Historia</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#misionModal">Misión y Visión</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#equipoModal">Equipo</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Enlaces Útiles</h3>
+                <ul class="footer-links">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="libro.html">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="manga.html">Manga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="revistas.html">Revistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="trailes.html">Trailes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlace-protegido" href="Tienda.html">Tienda</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#chatbox">Soporte</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#faqModal">FAQ</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactoModal">Contacto</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://facebook.com/lecturaplus" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/lecturaplus" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/lecturaplus" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 LecturaPlus. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+<!-- Modal del Chat -->
+<div class="modal fade" id="chatbox" tabindex="-1" aria-labelledby="chatboxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header chatbox__header">
+                <h4 class="modal-title" id="chatboxLabel">Soporte LecturaPlus</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="chatbox__messages" id="messageArea">
+                    <div class="messages__history">
+                        <!-- Los mensajes se agregarán aquí dinámicamente -->
+                    </div>
+                    <div class="messages__item messages__item--typing">
+                        <span class="messages__dot"></span>
+                        <span class="messages__dot"></span>
+                        <span class="messages__dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer chatbox__footer">
+                <input type="text" placeholder="Escribe un mensaje..." id="chatInput" class="form-control">
+                <button class="btn btn-primary chatbox__send" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Contacto -->
+<div class="modal fade" id="contactoModal" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactoModalLabel">Información de Contacto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>WhatsApp</h6>
+                    <p><a href="https://wa.me/59169448014?text=¡Bienvenido%20a%20lectura%20plus!%20¿En%20qué%20podemos%20ayudarte?" target="_blank">
+                            <i class="fab fa-whatsapp"></i> +591 69448014 </a>
+                    </p>
+                <h6>Redes Sociales</h6>
+                <ul class="list-unstyled">
+                    <li><a href="https://facebook.com/lecturaplus" target="_blank"><i class="fab fa-facebook"></i> @lecturaplus</a></li>
+                    <li><a href="https://twitter.com/lecturaplus" target="_blank"><i class="fab fa-twitter"></i> @lecturaplus</a></li>
+                    <li><a href="https://instagram.com/lecturaplus" target="_blank"><i class="fab fa-instagram"></i> @lecturaplus</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de FAQ -->
+<div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="faqModalLabel">Preguntas Frecuentes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                ¿Cómo puedo crear una cuenta?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Para crear una cuenta, haz clic en el botón "Login" y selecciona la opción de registro.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                ¿Cómo puedo acceder al contenido premium?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                El contenido premium está disponible para usuarios registrados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal Nuestra Historia -->
+<div class="modal fade" id="historiaModal" tabindex="-1" aria-labelledby="historiaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="historiaModalLabel">Nuestra Historia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Lectura Plus nació en 2020 con la visión de transformar la manera en que las personas acceden a la literatura. Comenzamos como un pequeño proyecto y hemos crecido hasta convertirnos en una plataforma líder en recomendaciones literarias.</p>
+                <p>A lo largo de los años, hemos construido una comunidad apasionada por la lectura, conectando a lectores de todo el mundo con historias que inspiran, educan y entretienen.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Misión y Visión -->
+<div class="modal fade" id="misionModal" tabindex="-1" aria-labelledby="misionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="misionModalLabel">Misión y Visión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Misión</h6>
+                <p>Facilitar el acceso a la literatura de calidad y fomentar el amor por la lectura a través de una plataforma innovadora y accesible para todos.</p>
+                
+                <h6>Visión</h6>
+                <p>Ser la plataforma líder mundial en recomendaciones literarias, creando una comunidad global de lectores apasionados y conectados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Equipo -->
+<div class="modal fade" id="equipoModal" tabindex="-1" aria-labelledby="equipoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="equipoModalLabel">Nuestro Equipo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="team-member">
+                    <h6>Fundador y CEO</h6>
+                    <p>Juan Pérez</p>
+                    <p class="member-desc">Apasionado por la literatura y la tecnología.</p>
+                </div>
+                <div class="team-member">
+                    <h6>Directora de Contenido</h6>
+                    <p>María García</p>
+                    <p class="member-desc">Especialista en literatura contemporánea.</p>
+                </div>
+                <div class="team-member">
+                    <h6>Jefe de Desarrollo</h6>
+                    <p>Carlos Rodríguez</p>
+                    <p class="member-desc">Experto en desarrollo web y experiencia de usuario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Scripts de Bootstrap -->
+    <script src="Inicio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
