@@ -1092,8 +1092,17 @@ main {
 .category-card {
     border-radius: 15px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    height: 500px; /* Altura fija para mantener la proporción */
+    height: 500px;
     width: 100%;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+    perspective: 1000px;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.category-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.2);
 }
 
 .category-card img {
@@ -1102,9 +1111,15 @@ main {
     object-fit: cover;
     border-radius: 15px;
     filter: brightness(0.9);
+    transition: filter 0.5s ease, transform 0.5s ease;
 }
 
-/* Overlay de la categoría */
+.category-card:hover img {
+    filter: brightness(0.75);
+    transform: scale(1.05);
+}
+
+/* Overlay de la categoría con nuevo diseño */
 .category-overlay {
     position: absolute;
     bottom: 0;
@@ -1112,74 +1127,166 @@ main {
     right: 0;
     background: linear-gradient(
         to top,
-        rgba(201, 201, 201, 0.582) 0%,
-        rgba(235, 234, 234, 0.438) 80%,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
         transparent 100%
     );
-    padding: clamp(15px, 3vh, 30px) clamp(10px, 2vw, 20px);
+    padding: 2rem;
     border-radius: 0 0 15px 15px;
-    color: rgb(233, 28, 141);
-    transform: translateY(70%);
-    transition: transform 0.3s ease;
-    font-weight: 600;
+    transform: translateY(60%);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
     font-family: "Sour Gummy", sans-serif;
 }
 
 .category-card:hover .category-overlay {
     transform: translateY(0);
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
 }
 
 .category-title {
-    font-size: clamp(20px, 2.5vw, 32px);
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: clamp(5px, 1vh, 10px);
-    transform: translateY(-70px);
-    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+    transform: translateY(-30px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #9b4dca;
+    position: relative;
 }
 
-.category-card:hover .category-title {
-    transform: translateY(0);
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #845EC2);
+    transition: width 0.5s ease;
+}
+
+.category-card:hover .category-title::after {
+    width: 100%;
 }
 
 .category-overlay p {
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: 1.2rem;
     opacity: 0;
-    margin-bottom: clamp(10px, 1.5vh, 15px);
-    transition: opacity 0.3s ease;
-    font-size: 25px;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1.5rem;
+    color: #2a9d8f;
 }
 
 .category-card:hover .category-overlay p {
     opacity: 1;
+    transform: translateY(0);
 }
 
-/* Botón de explorar */
+/* Botón con nuevo diseño */
 .category-overlay .btn {
-    background: white;
-    color: #6901e1;
-    border: none;
-    padding: clamp(6px, 1vh, 8px) clamp(15px, 2vw, 25px);
-    border-radius: 25px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
     font-weight: 600;
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: 1rem;
     opacity: 0;
-    transition: all 0.3s ease;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.category-overlay .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
+    transition: width 0.5s ease;
+    z-index: -1;
 }
 
 .category-card:hover .btn {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .category-overlay .btn:hover {
-    background: linear-gradient(90deg, rgba(115,108,244,1) 0%, rgba(237,95,255,1) 100%);
-    color: rgb(255, 255, 255);
-    transform: scale(1.05);
+    border-color: transparent;
+    color: #fff;
 }
 
-/* Responsive adjustments usando breakpoints */
+.category-overlay .btn:hover::before {
+    width: 100%;
+}
+
+/* Añadir animación de brillo */
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: shimmer 2s infinite;
+    pointer-events: none;
+}
+
+.category-card:hover::after {
+    opacity: 1;
+}
+
+/* Animación al cargar la página */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Asegurarse que las cards aparezcan en secuencia */
+.category-card:nth-child(1) { animation-delay: 0.2s; }
+.category-card:nth-child(2) { animation-delay: 0.4s; }
+.category-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Responsive adjustments */
 @media (max-width: 1200px) {
     .category-card {
-        height: 500px; /* Mantiene la misma altura */
+        height: 500px;
     }
 }
 
@@ -1188,14 +1295,14 @@ main {
         width: min(600px, 85vw);
     }
     .category-card {
-        height: 500px; /* Mantiene la misma altura */
+        height: 500px;
     }
 }
 
 @media (max-width: 768px) {
     .category-card {
-        height: 500px; /* Mantiene la misma altura */
-        margin-bottom: 20px; /* Añade espacio entre cards en móvil */
+        height: 500px;
+        margin-bottom: 20px;
     }
     
     .categories-section h2:after {
@@ -1209,11 +1316,36 @@ main {
     }
     
     .category-card {
-        height: 500px; /* Mantiene la misma altura */
+        height: 500px;
         margin-bottom: 20px;
     }
     
     .categories-section h2:after {
         width: min(300px, 75vw);
+    }
+}
+/* Para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .category-overlay {
+        padding: 1rem;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+    }
+    
+    .category-overlay p {
+        font-size: 1rem;
+    }
+    
+    .category-overlay .btn {
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .category-card {
+        height: 600px;
     }
 }
